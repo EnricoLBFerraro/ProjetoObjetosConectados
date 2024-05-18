@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dados dos Sensores Arduino</title>
+    <script>
+        async function fetchData() {
+            const response = await fetch('/data');
+            const data = await response.json();
+            document.getElementById('bpm').innerText = data.bpm + ' BPM';
+        }
+
+        setInterval(fetchData, 2000);  // Atualiza os dados a cada 20 segundos
+    </script>
+</head>
+<body>
+    <h1>Dados dos Sensores Arduino</h1>
+    <p>Pulsação Cardiaca: <span id="bpm">Carregando...</span></p>
+</body>
+</html>
+
+
